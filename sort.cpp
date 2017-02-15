@@ -77,12 +77,24 @@ int main()
 void bubbleSort(auto& Data)
 {
 	for (int i = 0; i<Data.size(); ++i)
+	{
+		for (int j = 0; j<Data.size()-1; ++j)
+			if (Data[j]>Data[j+1])
+				swap(Data[j], Data[j+1]);
+		if ((i>0) && (i%20000==0))
+			cout << "\nNumber of passes: " << i << endl;
+	}
+}
+
+/*void bubbleSort(auto& Data)
+{
+	for (int i = 0; i<Data.size(); ++i)
 		for (int j = 0; j<Data.size()-1; ++j)
 			if (Data[j]>Data[j+1])
 				swap(Data[j], Data[j+1]);
 }
 
-/*int linearSearch(auto data, auto key)
+int linearSearch(auto data, auto key)
 {
 	for (int i=0; i<data.size(); ++i)
 		if (data[i]==key)
